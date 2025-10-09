@@ -1,0 +1,21 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Messages</title>
+</head>
+<body>
+  <h2>All Messages with IP</h2>
+  <div id="messages"></div>
+
+  <script>
+    async function loadMessages() {
+      const res = await fetch('/messages');
+      const data = await res.json();
+      const div = document.getElementById('messages');
+      div.innerHTML = data.map(m => `<p>${m.ip}: ${m.text}</p>`).join('');
+    }
+    loadMessages();
+  </script>
+</body>
+</html>
