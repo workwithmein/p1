@@ -26,7 +26,7 @@ app.post("/submit", (req, res) => {
   messages.push(entry);
   fs.writeFileSync(dataFile, JSON.stringify(messages, null, 2));
 
-  res.redirect("/show.html");
+  res.redirect("/index.html");
 });
 
 app.get("/messages", (req, res) => {
